@@ -1,0 +1,38 @@
+<!--miniprogram/pages/info/info.wxml-->
+<!-- <text>miniprogram/pages/info/info.wxml</text> -->
+<view class='mina-info'>
+  <image src='{{logo_img}}' bindtap="showMpCode" show-menu-by-longpress="1"></image>
+  <view class='title'>{{text_cfg.app_name}}</view>
+  <view class='dev'><text>{{version ? version + "\n" : ""}} {{text_cfg.info.slogan}}</text></view>
+  <view class='dev small'><text>-- {{numAllCats || '0'}}只猫猫，{{numAllPhotos || '0'}}张照片，{{numAllComments || '0'}}张便利贴 --</text></view>
+</view>
+
+<view class='buttons'>
+  <image class='button' bindtap='clickbtn' data-to='/pages/info/reward/reward' src='/pages/public/images/info/btn/dashang.png'></image>
+  <image class='button' bindtap='clickbtn' data-to='/pages/info/badge/badge' src='/pages/public/images/info/btn/badge.png'></image>
+  <image class='button' bindtap='clickbtn' data-to='/pages/info/devTeam/devTeam' src='/pages/public/images/info/btn/tuandui.png'></image>
+  <image class='button' bindtap='clickbtn' data-to='/pages/info/feedback/feedback' src='/pages/public/images/info/btn/fankui.png'></image>
+</view>
+
+<view class='block-name'>友情链接</view>
+
+<!-- <scroll-view class="scroll-friend-link-box" scroll-x="true" enable-flex='true' enhanced="true" show-scrollbar='false'></scroll-view> -->
+<view class="friend-link-box">
+  <view wx:for="{{friendApps}}" class="friend-link" bindtap="clickFriendLink" data-appid="{{item.appid}}" wx:key="name">
+    <image mode='aspectFit' src="{{item.logo}}"></image>
+    <view class="friend-link-text">{{item.name}}</view>
+  </view>
+</view>
+
+<block wx:for="{{menuList}}" wx:key="title" wx:for-item="menu" wx:if="{{showCond[menu.show]}}">
+  <view class='block-name'>{{menu.title}}</view>
+  <view class='option-box'>
+    <view wx:for="{{menu.items}}" wx:key="name" class="option" bindtap='clickbtn' data-to='{{item.path}}'>
+      <view class="option-text">{{item.name}}<text wx:if="{{item.num}}">（{{nums[item.num]}}）</text></view>
+      <view class="right-arrow"><image mode='aspectFill' src="/pages/public/images/filter/right.png"></image></view> 
+    </view>
+  </view>
+</block>
+
+<!-- 底tab占位 -->
+<view style="height: {{tabBarHeight}}px;"></view>
