@@ -10,7 +10,7 @@ Page({
     text_cfg: text_cfg,
     github_link: "https://github.com/sysucats/zhongdamaopu",
     update_log: [{
-      version: "v1.",
+      version: "v1.0",
       content: [
         "徽章榜单也按时间划分",
         "优化徽章榜单的统计效率",

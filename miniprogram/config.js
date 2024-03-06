@@ -127,7 +127,7 @@ module.exports = {
     feedback: {
       share_tip: "信息反馈",
       feedback_tip_title: "留下反馈",
-      feedback_tip: "每一条反馈我们都会认真看滴",
+      feedback_tip: "我们会认真对待每一条反馈的！！！",
       new_cat_tip_title: "新的猫猫",
       new_cat_tip: "提交猫谱中没有的猫猫信息，给猫猫上户口~",
       contract_tip_title: "更多联系",
